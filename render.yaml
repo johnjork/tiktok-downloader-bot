@@ -1,0 +1,15 @@
+services:
+  - type: worker
+    name: tiktok-tele-bot
+    env: docker
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+    plan: starter
+    region: singapore
+    dockerfilePath: ./polling/Dockerfile
+    buildFilter:
+      paths:
+        - polling/**
+        - render.yaml

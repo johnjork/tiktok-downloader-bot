@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: tiktok-tele-bot-webhook
+    env: docker
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+    plan: starter
+    region: singapore
+    dockerfilePath: ./webhook/Dockerfile
+    buildFilter:
+      paths:
+        - webhook/**
+        - render-web.yaml
